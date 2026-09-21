@@ -238,7 +238,7 @@ const MenteeRegistrationPage = () => {
             sx={{
               position: 'relative',
               zIndex: 1,
-              pt: registrationOpen ? { xs: 4, sm: 6, md: 8 } : 0,
+              pt: { xs: 4, sm: 6, md: 8 },
               px: { xs: 2, sm: 3 },
               maxWidth: isMobile ? '100%' : theme.custom?.innerBox?.maxWidth,
               margin: '0 auto',
@@ -280,7 +280,7 @@ const MenteeRegistrationPage = () => {
                 bgcolor: 'white',
               }}
             >
-              {cycleLoading ? (
+              {cycleLoading && (
                 <Box
                   sx={{
                     display: 'flex',
@@ -291,9 +291,9 @@ const MenteeRegistrationPage = () => {
                 >
                   <span>Loading...</span>
                 </Box>
-              ) : !registrationOpen ? (
-                <RegistrationClosed />
-              ) : submitted ? (
+              )}
+              {!cycleLoading && !registrationOpen && <RegistrationClosed />}
+              {registrationOpen && submitted && (
                 <Box sx={{ textAlign: 'center', py: 4 }}>
                   <Typography variant="h5" gutterBottom fontWeight={600}>
                     Application submitted!
@@ -315,7 +315,8 @@ const MenteeRegistrationPage = () => {
                     Back to Mentorship
                   </Button>
                 </Box>
-              ) : (
+              )}
+              {registrationOpen && !submitted && (
                 <>
                   {/* Progress */}
                   <Typography
