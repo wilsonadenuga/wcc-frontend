@@ -35,9 +35,13 @@ describe('current-cycle API handler', () => {
 
     await handler(req, res);
 
-    expect(api.proxyRequest).toHaveBeenCalledWith('mentorship/cycles/current', {
-      method: 'GET',
-    });
+    expect(api.proxyRequest).toHaveBeenCalledWith(
+      'mentorship/cycles/current',
+      {
+        method: 'GET',
+      },
+      true,
+    );
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith(cycle);
   });

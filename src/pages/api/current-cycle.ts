@@ -12,9 +12,13 @@ export default async function handler(
   }
 
   try {
-    const data = await proxyRequest('mentorship/cycles/current', {
-      method: 'GET',
-    });
+    const data = await proxyRequest(
+      'mentorship/cycles/current',
+      {
+        method: 'GET',
+      },
+      true,
+    );
 
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     return res.status(200).json(data);
