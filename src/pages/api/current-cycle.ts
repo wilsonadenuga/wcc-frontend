@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { handleApiError, proxyRequest } from '../../lib/api';
+import { handleApiError, proxyRequest } from 'lib/api';
 
 export default async function handler(
   req: NextApiRequest,

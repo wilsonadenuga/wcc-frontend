@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import * as api from '../../lib/api';
-import handler from '../../pages/api/current-cycle';
+import * as api from 'lib/api';
+import handler from 'pages/api/current-cycle';
 
 jest.mock('../../lib/api', () => ({
   __esModule: true,
